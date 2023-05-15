@@ -1,0 +1,15 @@
+.div_centered {
+    background-color: #3f51b5;
+    margin-top: 100px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.5em;
+}
+.div_centered .btn {
+    color: #3f51b5;
+    background-color: white;
+}
+.div_centered label {
+        color: white;
+    }

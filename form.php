@@ -9,9 +9,9 @@ try {
 try {
     if (isset($_POST["submit"])) {
         if (!empty($_POST["author"]) && !empty($_POST["title"]) && !empty($_POST["content"])) {
-            $author = $_POST["author"];
-            $title = $_POST["title"];
-            $content = $_POST["content"];
+            $author = htmlspecialchars($_POST["author"]);
+            $title = htmlspecialchars($_POST["title"]);
+            $content = htmlspecialchars($_POST["content"]);
             try {
                 getDatabase()->prepareAndExecute("INSERT INTO `post`(`author`, `title`, `content`) VALUES (?,?,?)", array($author, $title, $content));
             } catch (Exception $e) {

@@ -4,13 +4,10 @@ echo 'test0';
 echo $_GET["id"];
 if (isset($_GET["id"])){
 
-    $post = getDatabase()->prepareAndExecute("SELECT * FROM posts WHERE id=?", array($_GET["id"]))->fetch(PDO::FETCH_ASSOC);
-    echo 'test1';
+    $post = getDatabase()->prepareAndExecute("SELECT * FROM post WHERE id=?", array($_GET["id"]))->fetch(PDO::FETCH_ASSOC);
     if (!$post){
-        echo 'test2';
         header("Location: index.php");
     } else {
-        echo 'test3';
         echo '
             <div class="card">
                 <div class="card-header">
@@ -27,7 +24,6 @@ if (isset($_GET["id"])){
     }
 
 } else {
-    echo 'test4';
     header("Location: index.php");
 }
 

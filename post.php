@@ -1,5 +1,7 @@
 <?php
 require_once ('header.php');
+echo 'test0';
+echo $_GET["id"];
 if (isset($_GET["id"])){
 
     $post = getDatabase()->prepareAndExecute("SELECT * FROM posts WHERE id=?", array($_GET["id"]))->fetch(PDO::FETCH_ASSOC);

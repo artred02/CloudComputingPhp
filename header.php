@@ -32,7 +32,7 @@ function getDatabase() {
     <a class="navbar-link header_nav" href="/"><i class="fa-solid fa-house text-white"></i></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" style="float: left">
-            <li class="nav-item active"><a class="nav-link header_nav" href="/form"><i class="fa-solid fa-pen-nib"></i></a></li>
+            <li class="nav-item active"><a class="nav-link header_nav" href="/form.php"><i class="fa-solid fa-pen-nib"></i></a></li>
         </ul>
     </div>
 </nav>

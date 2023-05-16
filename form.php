@@ -17,7 +17,7 @@ try {
             } catch (Exception $e) {
                 echo $e;
             }
-            header("Location: https://bananequidort.azurewebsites.net");
+            header("Location: https://bananequidort.azurewebsites.net/index.php");
         }
     }
 } catch (Exception $e) {

@@ -3,10 +3,13 @@ require_once ('header.php');
 if (isset($_GET["id"])){
 
     $post = getDatabase()->prepareAndExecute("SELECT * FROM posts WHERE id=?", array($_GET["id"]))->fetch(PDO::FETCH_ASSOC);
-
+    die(var_dump($post));
+    echo 'test1';
     if (!$post){
-        header("Location: /");
+        echo 'test2';
+        header("Location: index.php");
     } else {
+        echo 'test3';
         echo '
             <div class="card">
                 <div class="card-header">
@@ -23,6 +26,7 @@ if (isset($_GET["id"])){
     }
 
 } else {
-    header("Location: /");
+    echo 'test4';
+    header("Location: index.php");
 }
 

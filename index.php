@@ -4,6 +4,12 @@
 require_once ('header.php');
 
 $posts = getDatabase()->prepareAndExecute("SELECT * FROM `post` ORDER BY `id`", array());
+
+if (isset($_POST["delete"])) {
+    $delete = getDatabase()->prepareAndExecute("DELETE FROM `post` WHERE `id`=?", array($_POST["id"]));
+    header("Location: index.php");
+}
+
 echo '<div style="margin: 15px 15px 15px 15px; display: grid; grid-template-columns: repeat(2, 50%);">';
     foreach ($posts as $post) {
         echo
@@ -18,7 +24,11 @@ echo '<div style="margin: 15px 15px 15px 15px; display: grid; grid-template-colu
                     <span><i>Par : ' . $post["author"] . '</i></span>
                 </div>
                 <div class="card-footer">
-                    <a href="post.php?id=' . $post["id"] . '">Accéder au post</a>
+                    <a href="post.php?id=' . $post["id"] . '" class="btn btn-success">Accéder au post</a>
+                    <form method="post" style="display: contents">
+                        <input type="hidden" name="id" value="' . $post["id"] . '">
+                        <input type="submit" value="Supprimer" class="btn btn-danger" style="float: right" name="delete">               
+                    </form>
                 </div>
             </div>
         ';

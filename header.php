@@ -5,7 +5,7 @@ session_start();
 try {
     $database = new Database();
 } catch (Exception $e) {
-    echo getenv("DB_HOST");
+    echo 'erreur database';
 }
 
 function getDatabase() {

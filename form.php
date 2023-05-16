@@ -1,19 +1,30 @@
 <?php
 
-require_once ('header.php');
-if (isset($_POST["submit"])) {
-    if (!empty($_POST["author"]) && !empty($_POST["title"]) && !empty($_POST["content"])) {
-        $author = $_POST["author"];
-        $title = $_POST["title"];
-        $content = $_POST["content"];
-        try {
-            getDatabase()->prepareAndExecute("INSERT INTO `post`(`author`, `title`, `content`) VALUES (?,?,?)", array($author, $title, $content));
-        } catch (Exception $e) {
-            echo $e;
+try {
+    require_once ('header.php');
+} catch (Exception $e) {
+    echo 'require header.php error';
+}
+
+try {
+    if (isset($_POST["submit"])) {
+        if (!empty($_POST["author"]) && !empty($_POST["title"]) && !empty($_POST["content"])) {
+            $author = $_POST["author"];
+            $title = $_POST["title"];
+            $content = $_POST["content"];
+            try {
+                getDatabase()->prepareAndExecute("INSERT INTO `post`(`author`, `title`, `content`) VALUES (?,?,?)", array($author, $title, $content));
+            } catch (Exception $e) {
+                echo $e;
+            }
+            header("Location: /");
         }
-        header("Location: /");
+    }
+} catch (Exception $e) {
+    echo $e;
 }
-}
+
+
 ?>
 <div class="div_centered" style="max-width: 420px">
     <div class="text-center" style="padding: 5%">

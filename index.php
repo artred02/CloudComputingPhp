@@ -18,7 +18,7 @@ echo '<div style="margin: 15px 15px 15px 15px; display: grid; grid-template-colu
                     <span><i>Par : ' . $post["author"] . '</i></span>
                 </div>
                 <div class="card-footer">
-                    <a href="post.php?postId=' . $post["id"] . '">Accéder au post</a>
+                    <a href="post.php?id=' . $post["id"] . '">Accéder au post</a>
                 </div>
             </div>
         ';

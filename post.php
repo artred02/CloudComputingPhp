@@ -5,7 +5,6 @@ echo $_GET["id"];
 if (isset($_GET["id"])){
 
     $post = getDatabase()->prepareAndExecute("SELECT * FROM posts WHERE id=?", array($_GET["id"]))->fetch(PDO::FETCH_ASSOC);
-    die(var_dump($post));
     echo 'test1';
     if (!$post){
         echo 'test2';

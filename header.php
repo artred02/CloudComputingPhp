@@ -6,6 +6,7 @@ try {
     $database = new Database("DB_HOST", "DB_DATABASE", "DB_USERNAME", "DB_PASSWORD");
 } catch (Exception $e) {
     echo $e->getMessage();
+    echo getenv("DB_HOST");
 }
 
 function getDatabase() {

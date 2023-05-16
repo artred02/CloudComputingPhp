@@ -12,7 +12,7 @@ class Database {
     private $show_error = true;
 
     public function __construct($host, $dbname, $username, $password) {
-        $this->db = new PDO('mysql:host=' . $host . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
+        $this->db = new PDO('mysql:host=' . getenv($host) . ';dbname=' . getenv($dbname) . ';charset=utf8', getenv($username), getenv($password));
     }
 
     // prepare and execute an sql request.

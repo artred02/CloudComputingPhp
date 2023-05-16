@@ -13,7 +13,10 @@ class Database {
 
     public function __construct($host, $dbname, $username, $password) {
         try {
-            $this->db = new PDO('mysql:host=' . getenv($host) . ';dbname=' . getenv($dbname) . ';charset=utf8', getenv($username), getenv($password), '--ssl-ca=../../DigiCertGlobalRootCA.crt.pem');
+            $options = array(
+                PDO::MYSQL_ATTR_SSL_CA => '../../DigiCertGlobalRootCA.crt.pem',
+            );
+            $this->db = new PDO('mysql:host=' . getenv($host) . ';dbname=' . getenv($dbname) . ';charset=utf8', getenv($username), getenv($password), $options);
         } catch (Exception $e) {
             echo $e->getMessage();
         }

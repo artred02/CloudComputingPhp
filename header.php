@@ -3,7 +3,7 @@ require_once "core/database.php";
 session_start();
 //appel de la base de donnée, le header est appelé par toutes les autres pages, donc pas besoin de le refaire pour chaque page
 try {
-    $database = new PDO("DB_HOST", "DB_DATABASE", "DB_USERNAME", "DB_PASSWORD");;
+    $database = new Database();
 } catch (Exception $e) {
     echo getenv("DB_HOST");
 }

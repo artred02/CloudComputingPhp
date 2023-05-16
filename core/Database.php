@@ -11,12 +11,10 @@ class Database {
 
     private $show_error = true;
 
-    public function __construct($host, $dbname, $username, $password) {
+    public function __construct() {
         try {
-            $options = array(
-                PDO::MYSQL_ATTR_SSL_CA => '../../DigiCertGlobalRootCA.crt.pem',
-            );
-            $this->db = new PDO('mysql:host=' . getenv($host) . ';dbname=' . getenv($dbname) . ';charset=utf8', getenv($username), getenv($password), $options);
+            $options = [PDO::MYSQL_ATTR_SSL_CA => '../../DigiCertGlobalRootCA.crt.pem'];
+            $this->db = new PDO('mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_DATABASE') . ';charset=utf8', getenv('DB_USERNAME'), getenv('DB_PASSWORD'), $options);
         } catch (Exception $e) {
             echo $e->getMessage();
         }

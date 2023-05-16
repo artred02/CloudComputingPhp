@@ -2,7 +2,11 @@
 require_once "core/database.php";
 session_start();
 //appel de la base de donnée, le header est appelé par toutes les autres pages, donc pas besoin de le refaire pour chaque page
-$database = new Database("DB_HOST", "DB_DATABASE", "DB_USERNAME", "DB_PASSWORD");
+try {
+    $database = new Database("DB_HOST", "DB_DATABASE", "DB_USERNAME", "DB_PASSWORD");
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
 
 function getDatabase() {
     GLOBAL $database;

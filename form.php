@@ -6,7 +6,11 @@ if (isset($_POST["submit"])) {
         $author = $_POST["author"];
         $title = $_POST["title"];
         $content = $_POST["content"];
-        getDatabase()->prepareAndExecute("INSERT INTO `post`(`author`, `title`, `content`) VALUES (?,?,?)", array($author, $title, $content));
+        try {
+            getDatabase()->prepareAndExecute("INSERT INTO `post`(`author`, `title`, `content`) VALUES (?,?,?)", array($author, $title, $content));
+        } catch (Exception $e) {
+            echo $e;
+        }
         header("Location: /");
 }
 }

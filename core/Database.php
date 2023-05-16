@@ -18,6 +18,7 @@ class Database {
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+        echo 'db OK';
     }
 
     // prepare and execute an sql request.

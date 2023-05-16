@@ -17,7 +17,7 @@ try {
             } catch (Exception $e) {
                 echo $e;
             }
-            header("Location: /");
+            header("Location: /index.php");
         }
     }
 } catch (Exception $e) {

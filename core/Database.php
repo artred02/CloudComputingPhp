@@ -16,7 +16,7 @@ class Database {
 //            if (!getenv('DBHOST')) {
 //                $this->db = new PDO('mysql:host=localhost;dbname=cloudphp;charset=utf8', 'root', '');
 //            } else {
-                $options = [PDO::MYSQL_ATTR_SSL_CA => '../../DigiCertGlobalRootCA.crt.pem'];
+                $options = [PDO::MYSQL_ATTR_SSL_CA => getenv('MYSQL_ATTR_SSL_CA')];
                 $this->db = new PDO('mysql:host=' . getenv('DB_HOST') . ';dbname=' . getenv('DB_DATABASE') . ';charset=utf8', getenv('DB_USERNAME'), getenv('DB_PASSWORD'), $options);
 //            }
         } catch (Exception $e) {
